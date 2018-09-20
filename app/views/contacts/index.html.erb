@@ -15,7 +15,7 @@
       <td><%= contact.last_name %></td>
       <td><%= contact.phonenumber %></td>
       <td><%= link_to 'sms'%></td>
-      <td><%= link_to 'delete'%></td>
+      <td><%= link_to 'delete', contact_path(contact), method: :delete, data: {confirm: 'Are you like 100% sure?' }%></td>
     </tr>
   <% end %>
   </tbody>

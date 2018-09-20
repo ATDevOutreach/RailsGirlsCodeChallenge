@@ -828,3 +828,138 @@ Processing by ContactsController#index as HTML
 Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/contacts" for 127.0.0.1 at 2018-09-20 17:16:12 +0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered contacts/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 44ms (Views: 40.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-09-20 17:16:31 +0300
+Processing by ContactsController#new as HTML
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-09-20 17:17:17 +0300
+Processing by ContactsController#new as HTML
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 42ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2018-09-20 17:17:20 +0300
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+f7tBGQq/VUDaqI1gsGab8uEz1qs3+rrWEk/9IxTN0AE/Gy5mTj5yf8EqklUQmQZYUohphfktIuTXkZiKK/JpQ==", "contact"=>{"first_name"=>"", "last_name"=>"", "phonenumber"=>""}, "commit"=>"create"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[36mContact Create (3.6ms)[0m  [1m[32mINSERT INTO "contacts" ("first_name", "last_name", "phonenumber", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", ""], ["last_name", ""], ["phonenumber", ""], ["created_at", "2018-09-20 14:17:20.845614"], ["updated_at", "2018-09-20 14:17:20.845614"]]
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[35m (109.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 123ms (ActiveRecord: 113.5ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-20 17:17:20 +0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered contacts/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-20 17:23:05 +0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered contacts/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 45ms (Views: 39.3ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/contacts/7" for 127.0.0.1 at 2018-09-20 17:23:10 +0300
+Processing by ContactsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7pbS5QsESy8nvVm1P1bZzWnPA038jGKjfKu/DchnYBQTlFNY9hZPs9vTUcnp1Se7wwHtsUe3PMO3vMabbJue8Q==", "id"=>"7"}
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:18
+  [1m[36mContact Destroy (0.4ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/contacts_controller.rb:18
+  [1m[35m (82.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:18
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 89ms (ActiveRecord: 82.9ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-20 17:23:10 +0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered contacts/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/contacts/3" for 127.0.0.1 at 2018-09-20 17:23:13 +0300
+Processing by ContactsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C/fVBBKeJZ6f9/Nx3ua32afSU9TU68ZL8PkEHXEB2nv29VS574whAmOZ+w0IZUmvDRy9KG/QmCs77n2L1f0kng==", "id"=>"3"}
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:18
+  [1m[36mContact Destroy (0.4ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/contacts_controller.rb:18
+  [1m[35m (81.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:18
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 89ms (ActiveRecord: 82.3ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-20 17:23:13 +0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered contacts/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/contacts/5" for 127.0.0.1 at 2018-09-20 17:23:15 +0300
+Processing by ContactsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CiBhuSURyEBpq+v9t7uKP7qNySULvbcpHYXVKywGXPT3IuAE2APM3JXF44FhOHRJEEMn2bCG6UnWkqy9iPqiEQ==", "id"=>"5"}
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:18
+  [1m[36mContact Destroy (0.5ms)[0m  [1m[31mDELETE FROM "contacts" WHERE "contacts"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/contacts_controller.rb:18
+  [1m[35m (94.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:18
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 100ms (ActiveRecord: 95.5ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-20 17:23:16 +0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered contacts/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-20 17:23:17 +0300
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered contacts/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 51ms (Views: 47.7ms | ActiveRecord: 0.8ms)
+
+

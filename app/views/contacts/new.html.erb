@@ -1,6 +1,6 @@
 <%= form_for @contact, url: {action: "create"} do |f|%>
-  <%= f.text_field :first_name%>
-  <%= f.text_field :last_name%>
-  <%= f.text_field :phonenumber%>
+ First Name: <%= f.text_field :first_name%>
+ Last Name:  <%= f.text_field :last_name%>
+ Phone Number: <%= f.text_field :phonenumber%>
   <%= f.submit "create" %>
 <% end %>
