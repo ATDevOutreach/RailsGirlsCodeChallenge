@@ -1,12 +1,12 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all
+    @contacts = current_user.contacts
   end
   def new
     @contact = Contact.new
   end
   def create
-    @contact = Contact.new(contact_params)
+    @contact = current_user.contacts.build(contact_params)
     if @contact.save
       redirect_to contacts_path
     else
@@ -21,6 +21,6 @@ class ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :phonenumber)
+    params.require(:contact).permit(:user_id, :first_name, :last_name, :phonenumber)
   end
 end
