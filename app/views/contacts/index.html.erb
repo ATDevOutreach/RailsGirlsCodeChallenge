@@ -3,7 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Phone Number</th>
       <th>Send Message</th>
       <th>Delete</th>
@@ -15,7 +16,7 @@
       <td><%= contact.first_name %></td>
       <td><%= contact.last_name %></td>
       <td><%= contact.phonenumber %></td>
-      <td><%= link_to 'sms'%></td>
+      <td><%= link_to 'sms', new_sms_send_path(id: contact.id)%></td>
       <td><%= link_to 'delete', contact_path(contact), method: :delete, data: {confirm: 'Are you like 100% sure?' }%></td>
     </tr>
   <% end %>

@@ -1,0 +1,6 @@
+<%= form_for @at, url: {action: "create"} do |f|%>
+  <p>Write a message to: <%= @contact.first_name%> <%=@contact.last_name%><p/>
+  <%= f.hidden_field :contact_id, :value => @contact.id%>
+  message:  <%= f.text_field :message%>
+<%= f.submit "send" %>
+<% end %>
