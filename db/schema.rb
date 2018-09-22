@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2018_09_21_074512) do
 
   create_table "sms_sends", force: :cascade do |t|
     t.string "message"
-    t.string "mobile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "contact_id"
