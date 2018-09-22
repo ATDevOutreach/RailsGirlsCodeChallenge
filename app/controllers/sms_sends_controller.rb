@@ -10,7 +10,6 @@ class SmsSendsController < ApplicationController
     if @at.save!
     @con = current_user.contacts.find_by(id: @at.contact_id)
     AfricasTalkingGateway.new("trial-error", "29f7557bfacfe4335ea850fc3fe258b7f70064d069a014e39d5d2eece16659a9").sendMessage(@con.phonenumber, @at.message)
-    
     end
   end
   def new_all
