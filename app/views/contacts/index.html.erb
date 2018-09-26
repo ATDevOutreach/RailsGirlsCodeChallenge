@@ -1,0 +1,28 @@
+<%= flash[:success] %><br>
+<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<h1>All Contacts</h1>
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>Send Message</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= contact.first_name %></td>
+      <td><%= contact.last_name %></td>
+      <td><%= contact.phonenumber %></td>
+      <td><%= link_to 'sms', new_sms_send_path(id: contact.id)%></td>
+      <td><%= link_to 'delete', contact_path(contact), method: :delete, data: {confirm: 'Are you like 100% sure?' }%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+  <br>
+  <%= link_to 'New Contact', new_contact_path %>
+  <%= link_to 'Message All your Contacts', sms_sends_new_all_sms_sends_path %>

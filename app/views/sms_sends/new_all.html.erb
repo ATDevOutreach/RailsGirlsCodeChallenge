@@ -1,0 +1,6 @@
+<%= form_for @at, url: {action: "create_all"} do |f|%>
+  <h2>Message all your contacts</h2>
+  <%= f.hidden_field :contact_id%>
+  message:  <%= f.text_field :message%>
+<%= f.submit "send" %>
+<% end %>
