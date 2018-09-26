@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2018_09_21_074512) do
     t.string "first_name"
     t.string "last_name"
     t.integer "phonenumber"
-    t.boolean "is_checked"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

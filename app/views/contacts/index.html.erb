@@ -8,7 +8,6 @@
       <th>Phone Number</th>
       <th>Send Message</th>
       <th>Delete</th>
-      <th>select</th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +18,6 @@
       <td><%= contact.phonenumber %></td>
       <td><%= link_to 'sms', new_sms_send_path(id: contact.id)%></td>
       <td><%= link_to 'delete', contact_path(contact), method: :delete, data: {confirm: 'Are you like 100% sure?' }%></td>
-      <td><%= check_box_tag :is_checked%></td>
     </tr>
   <% end %>
   </tbody>

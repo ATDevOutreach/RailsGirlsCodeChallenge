@@ -8703,3 +8703,289 @@ Migrating to AddContactToSmsSend (20180921074512)
   ↳ bin/rails:9
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-09-26 10:49:24 +0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ContactsController#index as HTML
+Completed 401 Unauthorized in 37ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-26 10:49:24 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 615ms (Views: 584.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-09-26 10:50:16 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 53ms (Views: 51.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-09-26 10:50:22 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vp2FiQIURFzTh75TO0rckNcnPdMTnyYtziw7ToJujuufzTYCzeA8Zb0na9/TpXvSR5hy0Df6wwE3VTLR9Myq6A==", "user"=>{"email"=>"pokopoj@ditok.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "pokopoj@ditok.com"], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "pokopoj@ditok.com"], ["encrypted_password", "$2a$11$dUfXsLSMnWiYAuRubMRNCu/yBRewaYjEGncxDhCQcVugYBYb8qwAi"], ["created_at", "2018-09-26 07:50:22.777168"], ["updated_at", "2018-09-26 07:50:22.777168"]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (63.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 410ms (ActiveRecord: 64.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-26 10:50:22 +0300
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/contacts/index.html.erb:15
+  Rendered contacts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 88ms (Views: 35.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-09-26 10:50:57 +0300
+Processing by ContactsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 66ms (Views: 35.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2018-09-26 10:51:04 +0300
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+uj9FOjO3LkKXiEYy4hd0A7Sta6BTW+rQ/f58TxlrOhDxJ59b99tW7lKQKTmo+iVP5L1Swk0HilTO+LH/+dgHw==", "contact"=>{"first_name"=>"Daphne", "last_name"=>"Whitley", "phonenumber"=>"254711903303"}, "commit"=>"create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[36mContact Create (2.9ms)[0m  [1m[32mINSERT INTO "contacts" ("first_name", "last_name", "phonenumber", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Daphne"], ["last_name", "Whitley"], ["phonenumber", 254711903303], ["created_at", "2018-09-26 07:51:04.689112"], ["updated_at", "2018-09-26 07:51:04.689112"], ["user_id", 2]]
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[35m (85.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 215ms (ActiveRecord: 89.3ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-26 10:51:04 +0300
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/contacts/index.html.erb:15
+  Rendered contacts/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 43ms (Views: 37.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-09-26 10:51:08 +0300
+Processing by ContactsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 43ms (Views: 38.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2018-09-26 10:51:16 +0300
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C0UlTAkE/LkR8nh3qRO1JUDZ0dpf8ISVUHcBzi3UxjuyaUYljhVNW6LmGcuEOABgcZmRP9eJ9RdAuxr47lYKzA==", "contact"=>{"first_name"=>"Hakeem", "last_name"=>"Dean", "phonenumber"=>"254739262425"}, "commit"=>"create"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("first_name", "last_name", "phonenumber", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Hakeem"], ["last_name", "Dean"], ["phonenumber", 254739262425], ["created_at", "2018-09-26 07:51:16.319644"], ["updated_at", "2018-09-26 07:51:16.319644"], ["user_id", 2]]
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[35m (217.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 227ms (ActiveRecord: 218.1ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-26 10:51:16 +0300
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/contacts/index.html.erb:15
+  Rendered contacts/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 37ms (Views: 33.1ms | ActiveRecord: 0.6ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (94.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (86.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20180920130430)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180920130430_devise_create_users.rb:5
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180920130430_devise_create_users.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180920130430_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180920130430"]]
+  ↳ bin/rails:9
+  [1m[35m (93.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateContacts (20180920132032)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phonenumber" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180920132032_create_contacts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180920132032"]]
+  ↳ bin/rails:9
+  [1m[35m (252.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddUserToContact (20180920132335)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "contacts" ADD "user_id" integer[0m
+  ↳ db/migrate/20180920132335_add_user_to_contact.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_contacts_on_user_id" ON "contacts" ("user_id")[0m
+  ↳ db/migrate/20180920132335_add_user_to_contact.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180920132335"]]
+  ↳ bin/rails:9
+  [1m[35m (101.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateSmsSends (20180921061918)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "sms_sends" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180921061918_create_sms_sends.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180921061918"]]
+  ↳ bin/rails:9
+  [1m[35m (105.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddContactToSmsSend (20180921074512)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "sms_sends" ADD "contact_id" integer[0m
+  ↳ db/migrate/20180921074512_add_contact_to_sms_send.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_sms_sends_on_contact_id" ON "sms_sends" ("contact_id")[0m
+  ↳ db/migrate/20180921074512_add_contact_to_sms_send.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180921074512"]]
+  ↳ bin/rails:9
+  [1m[35m (106.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-26 07:55:26.138870"], ["updated_at", "2018-09-26 07:55:26.138870"]]
+  ↳ bin/rails:9
+  [1m[35m (73.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/contacts" for 127.0.0.1 at 2018-09-26 10:55:29 +0300
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 9ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-09-26 10:55:29 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 47ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-09-26 10:55:34 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 43ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-09-26 10:55:38 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mrlqtg22qhIUb/5Qgqe40qCJaBLb2LZ0tTIYrrnk29MT6dk9wkLSK3rPK9xqSB+QMDYnEf+9U1hMSxExz0b/0A==", "user"=>{"email"=>"zebiruwam@jaxamukusofozyr.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "zebiruwam@jaxamukusofozyr.com"], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "zebiruwam@jaxamukusofozyr.com"], ["encrypted_password", "$2a$11$UWPA2Hs5LNKqcLzyYAQtr.D2CGGxiKBQlP/RdUBg.14xFmlyuofwC"], ["created_at", "2018-09-26 07:55:38.760199"], ["updated_at", "2018-09-26 07:55:38.760199"]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (95.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 273ms (ActiveRecord: 96.2ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-26 10:55:38 +0300
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered contacts/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 51ms (Views: 45.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts/new" for 127.0.0.1 at 2018-09-26 10:55:46 +0300
+Processing by ContactsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered contacts/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 64ms (Views: 36.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2018-09-26 10:55:53 +0300
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f9HEzG4BbASNVgkH4jubc/e0OmJpjWGJH7jBU7kCHMXG/ael6RDd5j5CaLvPEC42xvR6h+H0EAsPdNpleoDQMg==", "contact"=>{"first_name"=>"Noelani", "last_name"=>"Valencia", "phonenumber"=>"254711903303"}, "commit"=>"create"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[36mContact Create (1.4ms)[0m  [1m[32mINSERT INTO "contacts" ("first_name", "last_name", "phonenumber", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Noelani"], ["last_name", "Valencia"], ["phonenumber", 254711903303], ["created_at", "2018-09-26 07:55:53.638316"], ["updated_at", "2018-09-26 07:55:53.638316"], ["user_id", 1]]
+  ↳ app/controllers/contacts_controller.rb:10
+  [1m[35m (160.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:10
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 193ms (ActiveRecord: 162.6ms)
+
+
+Started GET "/contacts" for 127.0.0.1 at 2018-09-26 10:55:53 +0300
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/getty/.rvm/gems/ruby-2.4.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE "contacts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered contacts/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 58ms (Views: 31.9ms | ActiveRecord: 0.9ms)
+
+
